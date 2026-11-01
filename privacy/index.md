@@ -167,7 +167,7 @@ PostHog is our service provider and processes diagnostics only on our behalf. We
 **Diagnostics**
 
 - Turning off **Share usage & diagnostics** stops all new uploads immediately. It does not delete data PostHog has already received.
-- We keep diagnostics only as long as they help us diagnose and improve Woven. PostHog deletes events automatically at the end of its retention period: 1 year on PostHog's free plan and up to 7 years on paid plans.
+- We keep diagnostics only as long as they help us diagnose and improve Woven. Woven uses PostHog's free plan, which deletes events automatically after 1 year. If we move to a plan that keeps data longer, we will update this policy first.
 - To ask us to delete your diagnostics, contact us (see below). Include the **Latest diagnostic** ID if you have one; it appears in **Settings → Privacy & diagnostics** after a problem. Because diagnostics are not linked to your identity, we need an identifier like this to find your records.
 
 **AI providers**
@@ -197,4 +197,4 @@ For privacy questions or deletion requests:
 - **TestFlight testers**: use **Send Beta Feedback** in TestFlight, or the feedback email shown on Woven's TestFlight page.
 - **App Store users**: use the support link on Woven's App Store page.
 
-<!-- woven-privacy-sha256: 069b8c345a81ceb3bbb14ee647169cd7d1257612501b081817ff424ea91d58e6 -->
+<!-- woven-privacy-sha256: f23fb56bef881035f32d360211a1a5be2e764e404b1a9bbb4f3d072096e05da6 -->
