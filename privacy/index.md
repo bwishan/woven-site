@@ -196,3 +196,5 @@ For privacy questions or deletion requests:
 
 - **TestFlight testers**: use **Send Beta Feedback** in TestFlight, or the feedback email shown on Woven's TestFlight page.
 - **App Store users**: use the support link on Woven's App Store page.
+
+<!-- woven-privacy-sha256: 069b8c345a81ceb3bbb14ee647169cd7d1257612501b081817ff424ea91d58e6 -->
