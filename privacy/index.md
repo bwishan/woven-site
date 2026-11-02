@@ -6,13 +6,13 @@ render_with_liquid: false
 
 # Woven Privacy Policy
 
-Effective November 1, 2026
+Effective November 2, 2026
 
 Woven is an iPhone, iPad and Apple Watch app for training plans, workout logging, an AI training coach and heart-rate broadcasting. It is built by an independent developer ("we", "us"). This policy explains what Woven handles, where that data goes and the choices you have.
 
 ## Summary
 
-- Woven has **no account system and no Woven server**. Your training data is stored on your devices.
+- Woven has **no account system and no Woven server**. Your data is stored on your devices; optional iCloud sync copies eligible training data to your private CloudKit database.
 - Apple Health data is read only with your permission. It is never used for advertising, marketing or data mining, and it is never sold.
 - The AI coach sends your conversation and training context to **the AI provider you connect**, such as OpenAI. The Apple Health summary and readiness check-ins are included only if you turn on **Share Health context with Coach**.
 - **Share usage & diagnostics** sends privacy-filtered app diagnostics to PostHog. It is **off by default** in TestFlight and App Store builds.
@@ -27,19 +27,31 @@ Woven stores the following in its app container on your device. Some items are a
 - Heart-rate broadcast history, including heart-rate samples, and heart-rate zone settings.
 - Preferences and the AI provider and model you chose.
 
-This data is written with iOS file protection. Woven does not send it to us. Like other app data, it can be included in your device backups, depending on how you have set up your device's backup.
+This data is written with iOS file protection. Woven does not send it to us. The local library, retained legacy broadcast files and app/App Group preference directories containing health data are excluded from device cloud backups. Local-only conversations, feedback and broadcasts not saved to Apple Health cannot be recovered through Woven's iCloud restore or those backups.
 
 Widgets, Live Activities and the Watch app can show your heart rate, workout and plan on your Lock Screen, Home Screen and watch face.
+
+## Optional iCloud training sync
+
+iCloud sync is off until you enable it on each device. Woven uses your private CloudKit database, tied to your iCloud account, to sync confirmed training goals, schedule and equipment, plans, Journal workouts and logged sets, exercise definitions, saved timer templates and the automatic-rest preference. Journal entries can include workout linking and save identifiers; sync never uses them to read or write Apple Health automatically.
+
+Heart-rate broadcast history, samples, average/maximum heart rate, zone totals and all HR zone settings stay device-local. Conversations, injury/restriction context, personal workout feedback and notes, Health readings and sharing permissions, diagnostic consent, provider choices and credentials do not sync through CloudKit.
+
+Apple operates iCloud under its own terms and privacy policy. Woven keeps immutable versions and deletion markers to preserve edits and conflicts; removing an item does not physically erase its older cloud versions. Turning sync off keeps both copies. Reset disables sync and erases the device's copy only; enabling sync again can restore the cloud library.
+
+To remove the iCloud copy, turn sync off on every device, then remove Woven's cloud storage in **Settings → [your name] → iCloud → Manage Storage**. Re-enabling sync on a device with saved training can upload that training again. Apple Health records are managed separately in Apple Health.
 
 ## Apple Health
 
 With your permission, Woven reads:
 
 - heart rate, to broadcast it and show it during workouts
-- workouts from the last 14 days, for training history
+- workouts from the last 14 days, for coaching context; separately, Woven-created workouts in a 90-day history window, with explicit earlier loading when available
 - sleep, resting heart rate, heart rate variability (SDNN), respiratory rate, blood oxygen, sleeping wrist temperature, cardio fitness (VO₂ max) and 1-minute heart-rate recovery, for training context
 
 Woven runs a workout session to collect continuous heart rate, mainly on Apple Watch. It saves a workout to Apple Health only when you choose to save it.
+
+**Connect Apple Health** in broadcast history requests read-only workout and heart-rate access. It does not enable coaching sharing or workout writes. Readable Woven workouts appear alongside local broadcasts; Health-only details are derived in memory, not copied into Woven's CloudKit database. Apple independently manages any Health synchronization, and access or sync delays can limit what another device shows. Local listener details and zone totals are available only on the recording device. Explicitly saving an external-sensor broadcast requests heart-rate write access and saves its collected samples.
 
 Woven reads most Health data only when it needs to show it or build coaching context. It keeps these Health-derived values on your device:
 
@@ -49,7 +61,7 @@ Woven reads most Health data only when it needs to show it or build coaching con
 - **Save to Apple Health**: when you save a Woven workout to Apple Health, Woven records the new Health workout's identifier and activity type in the Journal entry.
 - **Plan reviews**: when **Share Health context with Coach** is on, the latest summary of the readings above may be saved with Woven's local coaching data. This stops the coach from repeating a plan review for unchanged data.
 
-All of these stay on your device and are erased by **Reset Woven**.
+Heart-rate records and cached readings stay device-local. Training Journal linking/save metadata can accompany eligible training sync as described above. **Reset Woven** erases Woven's local records, not the Apple Health originals or the separate iCloud copy.
 
 You can change Woven's Health access at any time in the Health app or in **Settings → Apple Health**.
 
@@ -164,7 +176,7 @@ PostHog is our service provider and processes diagnostics only on our behalf. We
   - plans, conversations, workout and broadcast history, profile, timers and preferences
   - saved connections on that device
 - Deleting the app removes its local data. iOS may keep Keychain items after an app is deleted, so disconnect your provider first to remove its credentials.
-- Reset does not delete your Apple Health records or your accounts with AI providers.
+- Reset disables iCloud training sync but does not delete its cloud copy, your Apple Health records or your accounts with AI providers.
 
 **Diagnostics**
 
@@ -199,4 +211,4 @@ For privacy questions or deletion requests:
 - **TestFlight testers**: use **Send Beta Feedback** in TestFlight, or the feedback email shown on Woven's TestFlight page.
 - **App Store users**: use the support link on Woven's App Store page.
 
-<!-- woven-privacy-sha256: 6dde41eb1c02801aba8e307f6b541f11a54894ab3f1da591e302dedb9b7cf6c6 -->
+<!-- woven-privacy-sha256: f57e9b0559d939a0b4c8501a3e80a62a750b76f482665dca69afb8716276f472 -->
