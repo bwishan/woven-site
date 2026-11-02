@@ -129,6 +129,8 @@ The Watch app does not contain an analytics SDK. If you turn on diagnostics, it 
 - Broadcast, relay and Health diagnostics: whether operations succeeded, their timing and categorized errors. Readings are not included.
 - Coach request diagnostics:
   - stages, timing and HTTP status
+  - the reply deadline, first response-byte and last stream-event timing, and whether streaming completed
+  - stage and idle timing, periodic progress while waiting, app lifecycle transitions during a reply, whether a request is a retry and whether a saved plan exists
   - categorized errors
   - provider request IDs
   - the requested, resolved and returned model names
@@ -197,4 +199,4 @@ For privacy questions or deletion requests:
 - **TestFlight testers**: use **Send Beta Feedback** in TestFlight, or the feedback email shown on Woven's TestFlight page.
 - **App Store users**: use the support link on Woven's App Store page.
 
-<!-- woven-privacy-sha256: acb226eaa8de0f984be4d0bf86b6ed9649d5faa6acd5171de220d20fb99bfb5f -->
+<!-- woven-privacy-sha256: 6dde41eb1c02801aba8e307f6b541f11a54894ab3f1da591e302dedb9b7cf6c6 -->
