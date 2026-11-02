@@ -55,7 +55,7 @@ You can change Woven's Health access at any time in the Health app or in **Setti
 
 Woven never uses Health data for advertising, marketing or data mining. It shares Health data only in these cases, and only after you choose to:
 
-- **With your AI provider**, when **Share Health context with Coach** is on. Separately, details of Health workouts you linked or saved are part of your Journal entries, and recent entries are sent whenever you use the coach. See the next section.
+- **With your AI provider**, when **Share Health context with Coach** is on. See the next section. Apple Health workout identifiers are never sent.
 - **Over Bluetooth**, when you start a heart-rate broadcast. See "Bluetooth" below.
 
 ## AI coaching providers
@@ -72,12 +72,12 @@ Woven sends the provider the following when you message the coach. It also sends
 - up to 30 recent conversation messages, including your messages and the coach's earlier replies
 - your training profile (goal, schedule, experience, equipment, load, limitations, travel and other notes you provide)
 - your current plan, including workouts you have completed in it, and any draft plan
-- your five most recent Journal entries: the exercises and sets you performed, your feedback and timing, and the Health details described above for workouts you linked or saved to Apple Health
+- your five most recent Journal entries: the exercises and sets you performed, your feedback and timing. For a linked Apple Health workout, this includes the start time and duration logged in the entry
 - today's date
 
 Only if **Share Health context with Coach** is on, Woven also sends:
 
-- a summary of your recent Apple Health workouts (type, duration, date and source app)
+- a summary of your recent Apple Health workouts (type, duration, date and source app), and the source app of workouts linked in your plan and recent Journal entries
 - the latest values of the Health readings listed above, with their dates and sources
 - your current self-reported readiness score and note
 
@@ -197,4 +197,4 @@ For privacy questions or deletion requests:
 - **TestFlight testers**: use **Send Beta Feedback** in TestFlight, or the feedback email shown on Woven's TestFlight page.
 - **App Store users**: use the support link on Woven's App Store page.
 
-<!-- woven-privacy-sha256: f23fb56bef881035f32d360211a1a5be2e764e404b1a9bbb4f3d072096e05da6 -->
+<!-- woven-privacy-sha256: acb226eaa8de0f984be4d0bf86b6ed9649d5faa6acd5171de220d20fb99bfb5f -->
